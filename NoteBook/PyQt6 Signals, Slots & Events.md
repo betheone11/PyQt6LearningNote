@@ -1,10 +1,10 @@
 ## signals & slots
-signals: µ±ÊÂ¼ş·¢ÉúÊ±²¿¼ş·¢³öµÄÌáĞÑ
-slots: signalsµÄ½ÓÊÕÕß
+signals: å½“äº‹ä»¶å‘ç”Ÿæ—¶éƒ¨ä»¶å‘å‡ºçš„æé†’  
+slots: signalsçš„æ¥æ”¶è€…
 ### QpushButton Signals
     button = QPushButton("Press Me!")
-    button.setCheckable(True) # ÉèÖÃ°´Å¥¿ÉÒÔ±»µã»÷²¢·¢³öĞÅºÅ
-    button.clicked.connect(self.the_button_was_clicked) # ÉèÖÃµã»÷ĞÅºÅµÄslotsÎªº¯Êı
+    button.setCheckable(True) # è®¾ç½®æŒ‰é’®å¯ä»¥è¢«ç‚¹å‡»å¹¶å‘å‡ºä¿¡å·
+    button.clicked.connect(self.the_button_was_clicked) # è®¾ç½®ç‚¹å‡»ä¿¡å·çš„slotsä¸ºå‡½æ•°
 
     def the_button_was_clicked(self):
         print("Clicked!")
@@ -12,17 +12,17 @@ slots: signalsµÄ½ÓÊÕÕß
 ### Receiving data
     button.clicked.connect(self.the_button_was_clicked)
     button.clicked.connect(self.the_button_was_toggled)
-    # Ò»¸ösignals ¿ÉÒÔÓĞ¶à¸öslots£¬²¢ÇÒ¶¼¿ÉÒÔ½ÓÊÕµ½ĞÅºÅ
+    # ä¸€ä¸ªsignals å¯ä»¥æœ‰å¤šä¸ªslotsï¼Œå¹¶ä¸”éƒ½å¯ä»¥æ¥æ”¶åˆ°ä¿¡å·
 ### Storing data
-´æ´¢µã»÷ĞÅºÅ
+å­˜å‚¨ç‚¹å‡»ä¿¡å·
 
-    self.button_is_checked = True # ÉèÖÃ±äÁ¿´æ´¢ĞÅºÅ£¬ÉèÖÃ³õÊ¼Öµ
+    self.button_is_checked = True # è®¾ç½®å˜é‡å­˜å‚¨ä¿¡å·ï¼Œè®¾ç½®åˆå§‹å€¼
     button.setCheckable(True)  
     button.clicked.connect(self.the_button_was_toggled) 
-    button.setChecked(self.button_is_checked) # ÉèÖÃ²¿¼şµÄ³õÊ¼×´Ì¬£¬µ±×´Ì¬·¢Éú±ä»¯Ê±¿ÉÒÔ½ÓÊÕĞÅºÅ²¢¸ü¸Ä±äÁ¿Öµ
+    button.setChecked(self.button_is_checked) # è®¾ç½®éƒ¨ä»¶çš„åˆå§‹çŠ¶æ€ï¼Œå½“çŠ¶æ€å‘ç”Ÿå˜åŒ–æ—¶å¯ä»¥æ¥æ”¶ä¿¡å·å¹¶æ›´æ”¹å˜é‡å€¼
 
     def the_button_was_toggled(self, checked):
-        self.button_is_checked = checked  µ±·¢Éú±ä»¯Ê±£¬º¯Êı½ÓÊÜ±ä»¯²¢¸ü¸Ä±äÁ¿Öµ
+        self.button_is_checked = checked  å½“å‘ç”Ÿå˜åŒ–æ—¶ï¼Œå‡½æ•°æ¥å—å˜åŒ–å¹¶æ›´æ”¹å˜é‡å€¼
 
         print(self.button_is_checked)
 > False
@@ -30,66 +30,72 @@ slots: signalsµÄ½ÓÊÕÕß
   False
   True
 
-´æ´¢³¤°´ºóÊÍ·ÅµÄĞÅºÅ
+å­˜å‚¨é•¿æŒ‰åé‡Šæ”¾çš„ä¿¡å·
+
     self.button_is_checked = True
     self.button.setCheckable(True)  
-    self.button.released.connect(self.the_button_was_released) # ÉèÖÃÊó±êµã»÷ºóµÄÊÍ·ÅĞÅºÅÁ¬½Óº¯Êı
-    self.button.setChecked(self.button_is_checked)  # ÉèÖÃ²¿¼şµÄ³õÊ¼×´Ì¬
+    self.button.released.connect(self.the_button_was_released) # è®¾ç½®é¼ æ ‡ç‚¹å‡»åçš„é‡Šæ”¾ä¿¡å·è¿æ¥å‡½æ•°
+    self.button.setChecked(self.button_is_checked)  # è®¾ç½®éƒ¨ä»¶çš„åˆå§‹çŠ¶æ€
 
     def the_button_was_released(self):
-        self.button_is_checked = self.button.isChecked()  # ÉèÖÃ.isChecked()º¯Êı£¬Êó±êµã»÷Íê³Éºó¸Ä±ä×´Ì¬
+        self.button_is_checked = self.button.isChecked()  # è®¾ç½®.isChecked()å‡½æ•°ï¼Œé¼ æ ‡ç‚¹å‡»å®Œæˆåæ”¹å˜çŠ¶æ€
 
         print(self.button_is_checked)
 
 ### Changing the interface
-¸ü¸Äslotsº¯Êı£¬ÈÃËû½ÓÊÕĞÅºÅºó¸ü¸Ä½çÃæ
+æ›´æ”¹slotså‡½æ•°ï¼Œè®©ä»–æ¥æ”¶ä¿¡å·åæ›´æ”¹ç•Œé¢
+
     def the_button_was_clicked(self):
-        self.button.setText("You already clicked me.")  # ¸ü¸ÄÏÔÊ¾µÄÎÄ×Ö
-        self.button.setEnabled(False)  # ÈÃ°´Å¥²»ÔÚÄÜ±»µã»÷
+        self.button.setText("You already clicked me.")  # æ›´æ”¹æ˜¾ç¤ºçš„æ–‡å­—
+        self.button.setEnabled(False)  # è®©æŒ‰é’®ä¸åœ¨èƒ½è¢«ç‚¹å‡»
 
         # Also change the window title.
         self.setWindowTitle("My Oneshot App")
-¸ü¶àÀı×Ó²é¿´app_1.py
-slots ²¢²»¹ØĞÄsignalsµÄÀ´Ô´,½ÓÊÕµ½ĞÅºÅ¾ÍĞĞ¶¯¡£
-    self.windowTitleChanged.connect(self.the_window_title_changed)  # µ±´°¿Ú±êÌâ¸ü¸ÄÊ±(Ö»ÓĞ¸ü¸ÄÎªÓëµ±Ç°²»Í¬µÄ±êÌâÊ±)signals½ÓÊÜµÄslots
-    new_window_title = random.choice(window_titles) # Ëæ»úÑ¡È¡Ò»¸ö±êÌâ
-    self.setWindowTitle(new_window_title)  # ¸ü¸Ä±êÌâ
-    self.button.setDisabled(True) ÉèÖÃ°´Å¥²»¿Éµã»÷µÄÁíÒ»ÖÖ·½·¨
+æ›´å¤šä¾‹å­æŸ¥çœ‹app_1.py
+slots å¹¶ä¸å…³å¿ƒsignalsçš„æ¥æº,æ¥æ”¶åˆ°ä¿¡å·å°±è¡ŒåŠ¨ã€‚
+
+    self.windowTitleChanged.connect(self.the_window_title_changed)  # å½“çª—å£æ ‡é¢˜æ›´æ”¹æ—¶(åªæœ‰æ›´æ”¹ä¸ºä¸å½“å‰ä¸åŒçš„æ ‡é¢˜æ—¶)signalsæ¥å—çš„slots
+    new_window_title = random.choice(window_titles) # éšæœºé€‰å–ä¸€ä¸ªæ ‡é¢˜
+    self.setWindowTitle(new_window_title)  # æ›´æ”¹æ ‡é¢˜
+    self.button.setDisabled(True) è®¾ç½®æŒ‰é’®ä¸å¯ç‚¹å‡»çš„å¦ä¸€ç§æ–¹æ³•
 
 ### Connecting widgets together directly
-slots³ıÁËpythonº¯ÊıÍâ»¹¿ÉÒÔÊÇÆäËûµÄQt widgets.
-[¹ØÓÚQLabelÀà](https://doc.qt.io/qt-5/qlabel.html#public-slots[QLabel])
-    self.label = QLabel()  # ÎªÁË½«inputÓëlabelÁ¬½Ólabel±ØĞë¶¨Òå
+slotsé™¤äº†pythonå‡½æ•°å¤–è¿˜å¯ä»¥æ˜¯å…¶ä»–çš„Qt widgets.
+[å…³äºQLabelç±»](https://doc.qt.io/qt-5/qlabel.html#public-slots[QLabel])
 
-    self.input = QLineEdit()  # ´´½¨Ò»¸öÊäÈë¿ò½ÓÊÕÓÃ»§ÊäÈë
-    self.input.textChanged.connect(self.label.setText)  # ½«ÓÃ»§ÊäÈëÊÂ¼şÓëQLabel¶ÔÏóÁ¬½Ó
+    self.label = QLabel()  # ä¸ºäº†å°†inputä¸labelè¿æ¥labelå¿…é¡»å®šä¹‰
 
-    layout = QVBoxLayout()  # ´´½¨Ò»¸ö²¼¾Ö
-    layout.addWidget(self.input) # ½«<QLineEdit>¼ÓÈë²¼¾Ö
-    layout.addWidget(self.label)  # ½«<QLabel>¼ÓÈë²¼¾Ö
+    self.input = QLineEdit()  # åˆ›å»ºä¸€ä¸ªè¾“å…¥æ¡†æ¥æ”¶ç”¨æˆ·è¾“å…¥
+    self.input.textChanged.connect(self.label.setText)  # å°†ç”¨æˆ·è¾“å…¥äº‹ä»¶ä¸QLabelå¯¹è±¡è¿æ¥
 
-    container = QWidget()  # ´´½¨ÈİÆ÷
-    container.setLayout(layout) # ÈİÆ÷ÄÚ·ÅÈë²¼¾Ö
+    layout = QVBoxLayout()  # åˆ›å»ºä¸€ä¸ªå¸ƒå±€
+    layout.addWidget(self.input) # å°†<QLineEdit>åŠ å…¥å¸ƒå±€
+    layout.addWidget(self.label)  # å°†<QLabel>åŠ å…¥å¸ƒå±€
+
+    container = QWidget()  # åˆ›å»ºå®¹å™¨
+    container.setLayout(layout) # å®¹å™¨å†…æ”¾å…¥å¸ƒå±€
 
     # Set the central widget of the Window.
     self.setCentralWidget(container)
 ## Events
-Event: ÓÃ»§ÓëQtÓ¦ÓÃµÄËùÓĞ½»»¥¶¼ÊÇÊÂ¼ş¡£
+Event: ç”¨æˆ·ä¸Qtåº”ç”¨çš„æ‰€æœ‰äº¤äº’éƒ½æ˜¯äº‹ä»¶ã€‚
 
 |Event handler|Event type moved|
 |:---|:---|
-|mouseMoveEvent|Êó±ê»®¶¯|
-|mousePressEvent|°´×¡Êó±ê|
-|mouseReleaseEvent|ËÉ¿ªÊó±ê|
-|mouseDoubleClickEvent|Ë«»÷Êó±ê|
-ÏÂÁĞÀı×ÓÖĞeÊÇ½ÓÊÜÊÂ¼şµÄ±äÁ¿
+|mouseMoveEvent|é¼ æ ‡åˆ’åŠ¨|
+|mousePressEvent|æŒ‰ä½é¼ æ ‡|
+|mouseReleaseEvent|æ¾å¼€é¼ æ ‡|
+|mouseDoubleClickEvent|åŒå‡»é¼ æ ‡|
+
+ä¸‹åˆ—ä¾‹å­ä¸­eæ˜¯æ¥å—äº‹ä»¶çš„å˜é‡
+
     class MainWindow(QMainWindow):
         def __init__(self):
             super().__init__()
             self.label = QLabel("Click in this window")
             self.setCentralWidget(self.label)
         
-        #todo: ÎªÊ²Ã´Ã»ÓĞÉèÖÃĞÅºÅµÄslotsÏÂÃæµÄº¯Êı¾ÍÄÜ×Ô¶¯µ÷ÓÃ£¿
+        #todo: ä¸ºä»€ä¹ˆæ²¡æœ‰è®¾ç½®ä¿¡å·çš„slotsä¸‹é¢çš„å‡½æ•°å°±èƒ½è‡ªåŠ¨è°ƒç”¨ï¼Ÿ
 
         def mouseMoveEvent(self, e):
             self.label.setText("mouseMoveEvent")
@@ -103,46 +109,48 @@ Event: ÓÃ»§ÓëQtÓ¦ÓÃµÄËùÓĞ½»»¥¶¼ÊÇÊÂ¼ş¡£
         def mouseDoubleClickEvent(self, e):
             self.label.setText("mouseDoubleClickEvent")
 
-Êó±êÒÆ¶¯ÊÂ¼şÖ»ÓĞÔÚÊó±ê°´ÏÂÊ±ÒÆ¶¯²Å»á´¥·¢£¬Äã¿ÉÒÔµ÷ÓÃself.setMouseTracking(True)À´¸ü¸Ä¡£
-pressÓëDoubleClickÖ»ÔÚÊó±ê°´×¡Ê±´¥·¢£¬ËÉ¿ªºó±äÎªrelease¡£
+é¼ æ ‡ç§»åŠ¨äº‹ä»¶åªæœ‰åœ¨é¼ æ ‡æŒ‰ä¸‹æ—¶ç§»åŠ¨æ‰ä¼šè§¦å‘ï¼Œä½ å¯ä»¥è°ƒç”¨self.setMouseTracking(True)æ¥æ›´æ”¹ã€‚
+pressä¸DoubleClickåªåœ¨é¼ æ ‡æŒ‰ä½æ—¶è§¦å‘ï¼Œæ¾å¼€åå˜ä¸ºreleaseã€‚
 ### Mouse events
-QMouseEventÀà°üº¬ÁËËùÓĞµÄÊó±êÏà¹ØµÄÊÂ¼ş
-ÏÂÁĞ·½·¨·µ»ØÊó±ê¶Ô°´Å¥µÄ×´Ì¬
+QMouseEventç±»åŒ…å«äº†æ‰€æœ‰çš„é¼ æ ‡ç›¸å…³çš„äº‹ä»¶
+ä¸‹åˆ—æ–¹æ³•è¿”å›é¼ æ ‡å¯¹æŒ‰é’®çš„çŠ¶æ€
 |Method|Returns|
 |:---|:---|
-|.button()|´¥·¢´ËÊÂ¼şµÄÌØ¶¨°´Å¥|
-|.buttons()|ËùÓĞÊó±ê°´Å¥µÄ×´Ì¬|
-|.position()|ÓëĞ¡²¿¼şÏà¶ÔÎ»ÖÃ(QPoint¶ÔÏó)|
-    def mousePressEvent(self, e):  # º¯ÊıÃû´ú±íÁËÏàÓ¦µÄ²Ù×÷
-        # °´ÏÂ×ó¼ü´¥·¢Õâ¸ö
+|.button()|è§¦å‘æ­¤äº‹ä»¶çš„ç‰¹å®šæŒ‰é’®|
+|.buttons()|æ‰€æœ‰é¼ æ ‡æŒ‰é’®çš„çŠ¶æ€|
+|.position()|ä¸å°éƒ¨ä»¶ç›¸å¯¹ä½ç½®(QPointå¯¹è±¡)|
+
+    def mousePressEvent(self, e):  # å‡½æ•°åä»£è¡¨äº†ç›¸åº”çš„æ“ä½œ
+        # æŒ‰ä¸‹å·¦é”®è§¦å‘è¿™ä¸ª
         if e.button() == Qt.MouseButton.LeftButton:
             self.label.setText("mousePressEvent LEFT")
 
      def mouseReleaseEvent(self, e):
-        # °´ÏÂÖĞ¼üºóÊÍ·Å´¥·¢Õâ¸ö
+        # æŒ‰ä¸‹ä¸­é”®åé‡Šæ”¾è§¦å‘è¿™ä¸ª
         if e.button() == Qt.MouseButton.MiddleButton:
             self.label.setText("mouseReleaseEvent MIDDLE")
 
     def mouseDoubleClickEvent(self, e):
-        # ÓÒ¼üË«»÷´¥·¢Õâ¸ö
+        # å³é”®åŒå‡»è§¦å‘è¿™ä¸ª
         if e.button() == Qt.MouseButton.RightButton:
             self.label.setText("mouseDoubleClickEvent RIGHT")
-### Context menus(ÓÒ¼ü²Ëµ¥)
-    def contextMenuEvent(self, e):  # ÖØĞ´¸¸ÀàµÄÍ¬Ãû·½·¨
+### Context menus(å³é”®èœå•)
+    def contextMenuEvent(self, e):  # é‡å†™çˆ¶ç±»çš„åŒåæ–¹æ³•
 
-    context = QMenu(self)  # ´´½¨QMenu¶ÔÏó
+    context = QMenu(self)  # åˆ›å»ºQMenuå¯¹è±¡
     context.addAction(QAction("test 1", self))
     context.addAction(QAction("test 2", self))
     context.addAction(QAction("test 3", self))
-    context.exec(e.globalPos()) # ÈÃ²Ëµ¥ÔÚÊó±ê´¦³öÏÖ
-ÁíÒ»ÖÖ·½·¨£º
+    context.exec(e.globalPos()) # è®©èœå•åœ¨é¼ æ ‡å¤„å‡ºç°
+å¦ä¸€ç§æ–¹æ³•ï¼š
+
     class MainWindow(QMainWindow):
         def __init__(self):
             super().__init__()
             self.show() # ?
 
-            self.setContextMenuPolicy(Qt.CustomContextMenu) # ÉèÖÃ´°¿ÚÀàĞÍ£¬³õÊ¼»¯
-            self.customContextMenuRequested.connect(self.on_context_menu) # ÉèÖÃ»½ÆğÓÒ¼ü²Ëµ¥µÄslots
+            self.setContextMenuPolicy(Qt.CustomContextMenu) # è®¾ç½®çª—å£ç±»å‹ï¼Œåˆå§‹åŒ–
+            self.customContextMenuRequested.connect(self.on_context_menu) # è®¾ç½®å”¤èµ·å³é”®èœå•çš„slots
 
         def on_context_menu(self, pos): 
             context = QMenu(self)
@@ -151,5 +159,5 @@ QMouseEventÀà°üº¬ÁËËùÓĞµÄÊó±êÏà¹ØµÄÊÂ¼ş
             context.addAction(QAction("test 3", self))
             context.exec(self.mapToGlobal(pos))
 ## Event hierarchy
-ÔÚPyQtÖĞÓĞÁ½ÖÖ¾ø¶ÔµÈ¼¶ÖÆ¶È£¬python¶ÔÏóµÈ¼¶ÖÆ¶ÈÒÔ¼°Qt²¼¾ÖµÈ¼¶ÖÆ¶È
+åœ¨PyQtä¸­æœ‰ä¸¤ç§ç»å¯¹ç­‰çº§åˆ¶åº¦ï¼Œpythonå¯¹è±¡ç­‰çº§åˆ¶åº¦ä»¥åŠQtå¸ƒå±€ç­‰çº§åˆ¶åº¦
 ### Python inheritance forwarding
