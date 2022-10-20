@@ -114,6 +114,7 @@ press与DoubleClick只在鼠标按住时触发，松开后变为release。
 ### Mouse events
 QMouseEvent类包含了所有的鼠标相关的事件
 下列方法返回鼠标对按钮的状态
+
 |Method|Returns|
 |:---|:---|
 |.button()|触发此事件的特定按钮|

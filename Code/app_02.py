@@ -1,4 +1,3 @@
-# -*- coding:gbk -*-
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget,QMenu
 import random
