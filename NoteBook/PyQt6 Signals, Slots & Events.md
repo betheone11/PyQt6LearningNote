@@ -161,3 +161,12 @@ QMouseEvent类包含了所有的鼠标相关的事件
 ## Event hierarchy
 在PyQt中有两种绝对等级制度，python对象等级制度以及Qt布局等级制度
 ### Python inheritance forwarding
+### Layout forwaeding  
+signals是会沿着部件的嵌套顺序传递，如果子部件未响应signals，会传递给父部件，知道被处理或传递到主窗口。  
+    class CustomButton(QPushButton)
+            def mousePressEvent(self, e):
+                e.accept()  # 你可以调用.accept()方法来标记为已处理。
+
+     class CustomButton(QPushButton)
+        def event(self, e):
+            e.ignore()  # 调用.ignore() 来使其忽略并往外层传递。
