@@ -31,8 +31,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("My App")
 
         button = QPushButton("Press Me!")
-        button.setCheckable(True)   # ÉèÖÃ°´Å¥¿ÉÒÔ±»µã»÷²¢·¢³öĞÅºÅ
-        button.clicked.connect(self.the_button_was_clicked)  # ÉèÖÃµã»÷ĞÅºÅµÄslotsÎªº¯Êı
+        button.setCheckable(True)   # è®¾ç½®æŒ‰é’®å¯ä»¥è¢«ç‚¹å‡»å¹¶å‘å‡ºä¿¡å·
+        button.clicked.connect(self.the_button_was_clicked)  # è®¾ç½®ç‚¹å‡»ä¿¡å·çš„slotsä¸ºå‡½æ•°
 
         # Set the central widget of the Window.
         self.setCentralWidget(button)
@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         button.clicked.connect(self.the_button_was_clicked)
         button.clicked.connect(self.the_button_was_toggled)
         
-        # Ò»¸ösignals ¿ÉÒÔÓĞ¶à¸öslots£¬²¢ÇÒ¶¼¿ÉÒÔ½ÓÊÕµ½ĞÅºÅ
+        # ä¸€ä¸ªsignals å¯ä»¥æœ‰å¤šä¸ªslotsï¼Œå¹¶ä¸”éƒ½å¯ä»¥æ¥æ”¶åˆ°ä¿¡å·
 
         self.setCentralWidget(button)
 
@@ -79,19 +79,19 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.button_is_checked = True  # ÉèÖÃ±äÁ¿´æ´¢ĞÅºÅ£¬ÉèÖÃ³õÊ¼Öµ
+        self.button_is_checked = True  # è®¾ç½®å˜é‡å­˜å‚¨ä¿¡å·ï¼Œè®¾ç½®åˆå§‹å€¼
 
         self.setWindowTitle("My App")
 
         button = QPushButton("Press Me!")
         button.setCheckable(True)  
         button.clicked.connect(self.the_button_was_toggled)
-        button.setChecked(self.button_is_checked)  # ÉèÖÃ²¿¼şµÄ³õÊ¼×´Ì¬£¬µ±×´Ì¬·¢Éú±ä»¯Ê±¿ÉÒÔ½ÓÊÕĞÅºÅ²¢¸ü¸Ä±äÁ¿Öµ
+        button.setChecked(self.button_is_checked)  # è®¾ç½®éƒ¨ä»¶çš„åˆå§‹çŠ¶æ€ï¼Œå½“çŠ¶æ€å‘ç”Ÿå˜åŒ–æ—¶å¯ä»¥æ¥æ”¶ä¿¡å·å¹¶æ›´æ”¹å˜é‡å€¼
 
         self.setCentralWidget(button)
 
     def the_button_was_toggled(self, checked):
-        self.button_is_checked = checked  # µ±·¢Éú±ä»¯Ê±£¬º¯Êı½ÓÊÜ±ä»¯²¢¸ü¸Ä±äÁ¿Öµ
+        self.button_is_checked = checked  # å½“å‘ç”Ÿå˜åŒ–æ—¶ï¼Œå‡½æ•°æ¥å—å˜åŒ–å¹¶æ›´æ”¹å˜é‡å€¼
 
         print(self.button_is_checked)
 '''
@@ -105,14 +105,14 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("My App")
 
         self.button = QPushButton("Press Me!")
-        self.button.setCheckable(True)  # ÉèÖÃ°´Å¥ÊÇÄÜ±»¼ì²éµÄ
-        self.button.released.connect(self.the_button_was_released) # ÉèÖÃÊó±êµã»÷ºóµÄÊÍ·ÅĞÅºÅÁ¬½Óº¯Êı
-        self.button.setChecked(self.button_is_checked)  # ÉèÖÃ²¿¼şµÄ³õÊ¼×´Ì¬
+        self.button.setCheckable(True)  # è®¾ç½®æŒ‰é’®æ˜¯èƒ½è¢«æ£€æŸ¥çš„
+        self.button.released.connect(self.the_button_was_released) # è®¾ç½®é¼ æ ‡ç‚¹å‡»åçš„é‡Šæ”¾ä¿¡å·è¿æ¥å‡½æ•°
+        self.button.setChecked(self.button_is_checked)  # è®¾ç½®éƒ¨ä»¶çš„åˆå§‹çŠ¶æ€
 
         self.setCentralWidget(self.button)
 
     def the_button_was_released(self):
-        self.button_is_checked = self.button.isChecked()  # ÉèÖÃ.isChecked()º¯Êı£¬Êó±êµã»÷Íê³Éºó¸Ä±ä×´Ì¬
+        self.button_is_checked = self.button.isChecked()  # è®¾ç½®.isChecked()å‡½æ•°ï¼Œé¼ æ ‡ç‚¹å‡»å®Œæˆåæ”¹å˜çŠ¶æ€
 
         print(self.button_is_checked)
 '''
@@ -132,8 +132,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.button)
 
     def the_button_was_clicked(self):
-        self.button.setText("You already clicked me.")  # ¸ü¸ÄÏÔÊ¾µÄÎÄ×Ö
-        self.button.setEnabled(False)  # ÈÃ°´Å¥²»ÔÚÄÜ±»µã»÷
+        self.button.setText("You already clicked me.")  # æ›´æ”¹æ˜¾ç¤ºçš„æ–‡å­—
+        self.button.setEnabled(False)  # è®©æŒ‰é’®ä¸åœ¨èƒ½è¢«ç‚¹å‡»
 
         # Also change the window title.
         self.setWindowTitle("My Oneshot App")
@@ -164,21 +164,21 @@ class MainWindow(QMainWindow):
         self.button = QPushButton("Press Me!")
         self.button.clicked.connect(self.the_button_was_clicked)
 
-        self.windowTitleChanged.connect(self.the_window_title_changed)  # µ±´°¿Ú±êÌâ¸ü¸ÄÊ±signals½ÓÊÜµÄslots
+        self.windowTitleChanged.connect(self.the_window_title_changed)  # å½“çª—å£æ ‡é¢˜æ›´æ”¹æ—¶signalsæ¥å—çš„slots
 
         # Set the central widget of the Window.
         self.setCentralWidget(self.button)
 
     def the_button_was_clicked(self):
         print("Clicked.")
-        new_window_title = random.choice(window_titles) # Ëæ»úÑ¡È¡Ò»¸ö±êÌâ
+        new_window_title = random.choice(window_titles) # éšæœºé€‰å–ä¸€ä¸ªæ ‡é¢˜
         print("Setting title:  %s" % new_window_title) 
-        self.setWindowTitle(new_window_title)  # ¸ü¸Ä±êÌâ
+        self.setWindowTitle(new_window_title)  # æ›´æ”¹æ ‡é¢˜
 
     def the_window_title_changed(self, window_title):
         print("Window title changed: %s" % window_title)
 
-        if window_title == 'Something went wrong':  # µ±±êÌâÎª%s Ê±½ûÖ¹°´Å¥¿Éµã»÷
+        if window_title == 'Something went wrong':  # å½“æ ‡é¢˜ä¸º%s æ—¶ç¦æ­¢æŒ‰é’®å¯ç‚¹å‡»
             self.button.setDisabled(True)
 '''
 
@@ -191,17 +191,17 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("My App")
 
-        self.label = QLabel()  # ÎªÁË½«inputÓëlabelÁ¬½Ólabel±ØĞë¶¨Òå
+        self.label = QLabel()  # ä¸ºäº†å°†inputä¸labelè¿æ¥labelå¿…é¡»å®šä¹‰
 
-        self.input = QLineEdit()  # ´´½¨Ò»¸öÊäÈë¿ò½ÓÊÕÓÃ»§ÊäÈë
-        self.input.textChanged.connect(self.label.setText)  # ½«ÓÃ»§ÊäÈëÊÂ¼şÓëQLabel¶ÔÏóÁ¬½Ó
+        self.input = QLineEdit()  # åˆ›å»ºä¸€ä¸ªè¾“å…¥æ¡†æ¥æ”¶ç”¨æˆ·è¾“å…¥
+        self.input.textChanged.connect(self.label.setText)  # å°†ç”¨æˆ·è¾“å…¥äº‹ä»¶ä¸QLabelå¯¹è±¡è¿æ¥
 
-        layout = QVBoxLayout()  # ´´½¨Ò»¸ö²¼¾Ö
-        layout.addWidget(self.input) # ½«<QLineEdit>¼ÓÈë²¼¾Ö
-        layout.addWidget(self.label)  # ½«<QLabel>¼ÓÈë²¼¾Ö
+        layout = QVBoxLayout()  # åˆ›å»ºä¸€ä¸ªå¸ƒå±€
+        layout.addWidget(self.input) # å°†<QLineEdit>åŠ å…¥å¸ƒå±€
+        layout.addWidget(self.label)  # å°†<QLabel>åŠ å…¥å¸ƒå±€
 
-        container = QWidget()  # ´´½¨ÈİÆ÷
-        container.setLayout(layout) # ÈİÆ÷ÄÚ·ÅÈë²¼¾Ö
+        container = QWidget()  # åˆ›å»ºå®¹å™¨
+        container.setLayout(layout) # å®¹å™¨å†…æ”¾å…¥å¸ƒå±€
 
         # Set the central widget of the Window.
         self.setCentralWidget(container)
@@ -214,7 +214,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.label = QLabel("Click in this window")
         self.setCentralWidget(self.label)
-#todo: ÎªÊ²Ã´Ã»ÓĞÉèÖÃĞÅºÅµÄslotsÏÂÃæµÄº¯Êı¾ÍÄÜ×Ô¶¯µ÷ÓÃ£¿
+#todo: ä¸ºä»€ä¹ˆæ²¡æœ‰è®¾ç½®ä¿¡å·çš„slotsä¸‹é¢çš„å‡½æ•°å°±èƒ½è‡ªåŠ¨è°ƒç”¨ï¼Ÿ
     def mouseMoveEvent(self, e):
         self.label.setText("mouseMoveEvent")
 
@@ -237,20 +237,20 @@ class MainWindow(QMainWindow):
         self.label = QLabel("Click in this window")
         self.setCentralWidget(self.label)
 
-    def mousePressEvent(self, e): # °´ÏÂÊÂ¼ş
+    def mousePressEvent(self, e): # æŒ‰ä¸‹äº‹ä»¶
         if e.button() == Qt.MouseButton.LeftButton:
-            # ×ó¼ü´¥·¢Õâ¸ö
+            # å·¦é”®è§¦å‘è¿™ä¸ª
             self.label.setText("mousePressEvent LEFT")
 
         elif e.button() == Qt.MouseButton.MiddleButton:
-            # ÖĞ½¨´¥·¢Õâ¸ö
+            # ä¸­å»ºè§¦å‘è¿™ä¸ª
             self.label.setText("mousePressEvent MIDDLE")
 
         elif e.button() == Qt.MouseButton.RightButton:
-            # ÓÒ¼ü´¥·¢Õâ¸ö
+            # å³é”®è§¦å‘è¿™ä¸ª
             self.label.setText("mousePressEvent RIGHT")
 
-    def mouseReleaseEvent(self, e): #ÊÍ·ÅÊÂ¼ş
+    def mouseReleaseEvent(self, e): #é‡Šæ”¾äº‹ä»¶
         if e.button() == Qt.MouseButton.LeftButton:
             self.label.setText("mouseReleaseEvent LEFT")
 
@@ -260,7 +260,7 @@ class MainWindow(QMainWindow):
         elif e.button() == Qt.MouseButton.RightButton:
             self.label.setText("mouseReleaseEvent RIGHT")
 
-    def mouseDoubleClickEvent(self, e):  # Ë«»÷ÊÂ¼ş
+    def mouseDoubleClickEvent(self, e):  # åŒå‡»äº‹ä»¶
         if e.button() == Qt.MouseButton.LeftButton:
             self.label.setText("mouseDoubleClickEvent LEFT")
 
@@ -278,12 +278,12 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-    def contextMenuEvent(self, e):  # ÖØĞ´¸¸ÀàµÄÍ¬Ãû·½·¨
-        context = QMenu(self)  # ´´½¨QMenu¶ÔÏó
+    def contextMenuEvent(self, e):  # é‡å†™çˆ¶ç±»çš„åŒåæ–¹æ³•
+        context = QMenu(self)  # åˆ›å»ºQMenuå¯¹è±¡
         context.addAction(QAction("test 1", self))
         context.addAction(QAction("test 2", self))
         context.addAction(QAction("test 3", self))
-        context.exec(e.globalPos()) # ÈÃ²Ëµ¥ÔÚÊó±ê´¦³öÏÖ
+        context.exec(e.globalPos()) # è®©èœå•åœ¨é¼ æ ‡å¤„å‡ºç°
 '''
 '''
 class MainWindow(QMainWindow):
@@ -291,8 +291,8 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.show() # ?
 
-        self.setContextMenuPolicy(Qt.CustomContextMenu) # ÉèÖÃ´°¿ÚÀàĞÍ£¬³õÊ¼»¯
-        self.customContextMenuRequested.connect(self.on_context_menu) # ÉèÖÃ»½ÆğÓÒ¼ü²Ëµ¥µÄslots
+        self.setContextMenuPolicy(Qt.CustomContextMenu) # è®¾ç½®çª—å£ç±»å‹ï¼Œåˆå§‹åŒ–
+        self.customContextMenuRequested.connect(self.on_context_menu) # è®¾ç½®å”¤èµ·å³é”®èœå•çš„slots
 
     def on_context_menu(self, pos): 
         context = QMenu(self)
